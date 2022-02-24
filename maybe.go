@@ -1,6 +1,13 @@
 // Package susliks provides implementations of several type-parametrized containers as optional value, balanced sorted binary trees, and compacted prefix trees
 package susliks
 
+// Zero returns a zero value of any parameteric type
+func Zero[T any]() T {
+    var zero T
+
+    return zero
+}
+
 // Maybe encapsulates an optional value
 type Maybe[T any] struct {
     contains bool
@@ -31,3 +38,4 @@ func (m Maybe[T]) Unwrap() (T, bool) {
 func (m Maybe[T]) Get() T {
     return m.value
 }
+
